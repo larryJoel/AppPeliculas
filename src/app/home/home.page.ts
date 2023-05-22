@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,5 +9,11 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class HomePage {
-  constructor() {}
+  constructor(public navCtrl: NavController) {}
+
+  salir(){
+    localStorage.removeItem('ingresado');
+    //localStorage.removeItem('usuario');
+    this.navCtrl.navigateRoot('/login');
+  }
 }
